@@ -1,0 +1,35 @@
+header {
+  background-color: #562b81;
+  color: white;
+  padding: 5px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+h2 {
+  display: inline-block;
+}
+
+main {
+  background-color: rgb(226, 223, 223);
+}
+
+textarea {
+  width: 75%;
+}
+
+.image {
+  display: inline;
+  width: 60%;
+  height: 60%;
+}
+
+.one-third {
+  flex-basis: 25%;
+  margin: 10px;
+}
+
+input {
+  width: 75%;
+  height: 30px;
+  margin-left: -10px;
+}
