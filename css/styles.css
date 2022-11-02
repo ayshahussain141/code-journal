@@ -38,6 +38,7 @@ textarea {
   width: 100%;
   border-color: rgb(210, 204, 204);
   border-radius: 2px;
+  font-family: "Proza Libre", sans-serif;
 }
 
 .button-save {
