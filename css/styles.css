@@ -69,3 +69,34 @@ textarea:focus {
 .margin-top {
   margin-top: 20px;
 }
+
+.list-images {
+  width: 50%;
+}
+
+.column-half {
+  flex-basis: 50%;
+}
+
+.imagesize {
+  width: 50%;
+}
+
+a {
+  color: white;
+  position: relative;
+  top: 25px;
+  left: 35px;
+  text-decoration: none;
+}
+
+.new-button {
+  border: 2px, solid;
+  background-color: #562b81;
+  color: white;
+  cursor: pointer;
+}
+
+.visible {
+  display: visible;
+}

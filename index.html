@@ -22,20 +22,26 @@
   <header>
     <div class="container">
       <div class="row">
-        <div class="column-full">
+        <div class="one-half">
           <h2>Code Journal</h2>
+        </div>
+        <div class="one-half">
+          <nav class="menu">
+            <a href="#form">Entries</a>
+          </nav>
         </div>
       </div>
     </div>
   </header>
   <main>
-    <div class="container padding-bottom" >
-      <div class="row">
-        <div class="column-full">
-          <h1>New Entry</h1>
+    <div data-view="entry-form" class="hidden" id="front">
+      <div class="container padding-bottom" >
+        <div class="row">
+          <div class="column-full">
+            <h1>New Entry</h1>
+          </div>
         </div>
-      </div>
-      <div data-view="entry-form">
+
         <form>
           <div class="row">
             <div class="column-half">
@@ -72,8 +78,42 @@
           </div>
 
         </form>
+
       </div>
     </div>
+    <div data-view="entries" class="visible">
+      <div class="container">
+        <div class="row">
+          <div class="column-half">
+            <h1>Entries</h1>
+          </div>
+          <div class="column-half">
+            <button class="new-button">NEW</button>
+
+          </div>
+        </div>
+
+        <ul>
+          <li>
+            <div class="column-row">
+              <div class="column-half">
+                <img class="list-images" src="https://images.computerhistory.org/babbage/5-7-1.jpg">
+              </div>
+              <div class="column-half">
+                <h3>Name</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea animi quisquam ut labore magnam, facere sint, maiores veritatis doloribus at, commodi quaerat magni id amet cumque fuga atque numquam similique.</p>
+              </div>
+            </div>
+          </li>
+
+
+        </ul>
+
+
+      </div>
+    </div>
+
+
 
 
 
