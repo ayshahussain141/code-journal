@@ -2,34 +2,69 @@ header {
   background-color: #562b81;
   color: white;
   padding: 5px;
-  font-family: Georgia, "Times New Roman", Times, serif;
-}
-
-h2 {
-  display: inline-block;
+  font-family: "Proza Libre", sans-serif;
+  font-size: 15px;
 }
 
 main {
   background-color: rgb(226, 223, 223);
-}
-
-textarea {
-  width: 75%;
+  font-family: "Proza Libre", sans-serif;
 }
 
 .image {
   display: inline;
-  width: 60%;
-  height: 60%;
+  width: 80%;
 }
 
-.one-third {
+.one-fourth {
   flex-basis: 25%;
   margin: 10px;
 }
 
 input {
-  width: 75%;
-  height: 30px;
+  width: 100%;
+  height: 40px;
   margin-left: -10px;
+  border: 1px solid rgb(180, 168, 168);
+  border-radius: 3px;
+  font-size: 20px;
+}
+
+label {
+  font-weight: bold;
+}
+
+textarea {
+  width: 100%;
+  border-color: rgb(210, 204, 204);
+  border-radius: 2px;
+}
+
+.button-save {
+  background-color: #562b81;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border-color: #562b81;
+  margin-top: 20px;
+}
+
+input:focus {
+  outline: 2px solid #562b81;
+}
+
+textarea:focus {
+  outline: 2px solid #562b81;
+}
+
+.justify-content-right {
+  justify-content: right;
+}
+
+.padding-bottom {
+  padding-bottom: 50px;
+}
+
+.margin-top {
+  margin-top: 20px;
 }
