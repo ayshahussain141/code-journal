@@ -74,12 +74,9 @@ textarea:focus {
   width: 50%;
 }
 
-.column-half {
-  flex-basis: 50%;
-}
-
 .imagesize {
   width: 50%;
+  display: inline;
 }
 
 a {
@@ -91,12 +88,23 @@ a {
 }
 
 .new-button {
-  border: 2px, solid;
   background-color: #562b81;
   color: white;
   cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin: 20px;
+  border-color: #562b81;
 }
 
 .visible {
   display: visible;
+}
+
+.justify-content-space {
+  justify-content: space-between;
+}
+
+li {
+  list-style-type: none;
 }

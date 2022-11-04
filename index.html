@@ -27,14 +27,16 @@
         </div>
         <div class="one-half">
           <nav class="menu">
-            <a href="#form">Entries</a>
+            <a href="#">Entries</a>
           </nav>
         </div>
       </div>
     </div>
   </header>
+
   <main>
-    <div data-view="entry-form" class="hidden" id="front">
+
+    <div data-view="entry-form" class="hidden">
       <div class="container padding-bottom" >
         <div class="row">
           <div class="column-full">
@@ -57,10 +59,10 @@
                 <input name="title" type="text" id="title" required/>
               </div>
               <div class="one-fourth">
-                <label for="Photo-URL">Photo-URL</label>
+                <label for="photo-url">Photo-URL</label>
               </div>
               <div class="one-fourth">
-                <input name="url" type="url" id="Photo-URL" required />
+                <input name="url" type="url" id="photo-url" required />
               </div>
             </div>
 
@@ -81,37 +83,24 @@
 
       </div>
     </div>
+
     <div data-view="entries" class="visible">
       <div class="container">
-        <div class="row">
-          <div class="column-half">
+        <div class="row justify-content-space ">
+          <div>
             <h1>Entries</h1>
           </div>
-          <div class="column-half">
-            <button class="new-button">NEW</button>
-
+          <div>
+            <a class="new-button">NEW</a>
           </div>
         </div>
-
         <ul>
-          <li>
-            <div class="column-row">
-              <div class="column-half">
-                <img class="list-images" src="https://images.computerhistory.org/babbage/5-7-1.jpg">
-              </div>
-              <div class="column-half">
-                <h3>Name</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea animi quisquam ut labore magnam, facere sint, maiores veritatis doloribus at, commodi quaerat magni id amet cumque fuga atque numquam similique.</p>
-              </div>
-            </div>
-          </li>
-
-
         </ul>
 
-
       </div>
+
     </div>
+
 
 
 
