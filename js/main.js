@@ -24,7 +24,7 @@ $form.addEventListener('submit', function (event) {
   data.entries.unshift(object);
 
   $ul.prepend((renderList(object)));
-
+  viewSwap('entries');
   $form.reset();
   $image.src = 'images/placeholder-image-square.jpg';
 
@@ -63,25 +63,32 @@ window.addEventListener('DOMContentLoaded', function (event) {
 
 });
 var $button = document.querySelector('.new-button');
-var hidden = document.querySelector('.hidden');
-var view = document.querySelector('.visible');
+var form1 = document.querySelector('#form-1');
+var entryform = document.querySelector('#entry-1');
 
 $button.addEventListener('click', function (event) {
-  hidden.className = view;
-  view.className = 'hidden';
+  viewSwap('entry-form');
 });
 
 var anchor = document.querySelector('a');
 
 anchor.addEventListener('click', function (event) {
-  hidden.className = 'hidden';
-  view.className = view;
+  viewSwap('entries');
 
 });
 
-var saveButton = document.querySelector('.button-save');
+function viewSwap(string) {
+  data.view = string;
+  if (string === 'entry-form') {
+    form1.className = 'visible';
+    entryform.className = 'hidden';
+  } else if (string === 'entries') {
+    entryform.className = 'visible';
+    form1.className = 'hidden';
+  }
+}
 
-saveButton.addEventListener('click', function (event) {
-  hidden.className = 'hidden';
-  view.className = view;
-});
+document.addEventListener('DOMContentLoaded', function () {
+  viewSwap(data.view);
+}
+);
