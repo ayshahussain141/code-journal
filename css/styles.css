@@ -69,3 +69,42 @@ textarea:focus {
 .margin-top {
   margin-top: 20px;
 }
+
+.list-images {
+  width: 50%;
+}
+
+.imagesize {
+  width: 50%;
+  display: inline;
+}
+
+a {
+  color: white;
+  position: relative;
+  top: 25px;
+  left: 35px;
+  text-decoration: none;
+}
+
+.new-button {
+  background-color: #562b81;
+  color: white;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin: 20px;
+  border-color: #562b81;
+}
+
+.visible {
+  display: visible;
+}
+
+.justify-content-space {
+  justify-content: space-between;
+}
+
+li {
+  list-style-type: none;
+}

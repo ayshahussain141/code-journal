@@ -22,20 +22,28 @@
   <header>
     <div class="container">
       <div class="row">
-        <div class="column-full">
+        <div class="one-half">
           <h2>Code Journal</h2>
+        </div>
+        <div class="one-half">
+          <nav class="menu">
+            <a id="top-page" href="#">Entries</a>
+          </nav>
         </div>
       </div>
     </div>
   </header>
+
   <main>
-    <div class="container padding-bottom" >
-      <div class="row">
-        <div class="column-full">
-          <h1>New Entry</h1>
+
+    <div data-view="entry-form" class="hidden" id="form-1">
+      <div class="container padding-bottom" >
+        <div class="row">
+          <div class="column-full">
+            <h1>New Entry</h1>
+          </div>
         </div>
-      </div>
-      <div data-view="entry-form">
+
         <form>
           <div class="row">
             <div class="column-half">
@@ -51,10 +59,10 @@
                 <input name="title" type="text" id="title" required/>
               </div>
               <div class="one-fourth">
-                <label for="Photo-URL">Photo-URL</label>
+                <label for="photo-url">Photo-URL</label>
               </div>
               <div class="one-fourth">
-                <input name="url" type="url" id="Photo-URL" required />
+                <input name="url" type="url" id="photo-url" required />
               </div>
             </div>
 
@@ -72,8 +80,29 @@
           </div>
 
         </form>
+
       </div>
     </div>
+
+    <div data-view="entries" class="visible" id="entry-1">
+      <div class="container padding">
+        <div class="row justify-content-space ">
+          <div>
+            <h1>Entries</h1>
+          </div>
+          <div>
+            <a class="new-button">NEW</a>
+          </div>
+        </div>
+        <ul>
+        </ul>
+
+      </div>
+
+    </div>
+
+
+
 
 
 
