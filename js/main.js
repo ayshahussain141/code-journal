@@ -23,7 +23,8 @@ $form.addEventListener('submit', function (event) {
   data.nextEntryId++;
   data.entries.unshift(object);
 
-  renderList(data.entries[0]);
+  $ul.prepend((renderList(object)));
+
   $form.reset();
   $image.src = 'images/placeholder-image-square.jpg';
 
@@ -32,7 +33,7 @@ var $ul = document.querySelector('ul');
 function renderList(entry) {
 
   var list = document.createElement('li');
-  $ul.prepend(list);
+  list.setAttribute('data-next-id', entry.nextid);
 
   var par = document.createElement('p');
   par.textContent = entry.notes;
@@ -51,11 +52,13 @@ function renderList(entry) {
   list.appendChild(newElement);
   newElement.appendChild(heading);
   newElement.appendChild(par);
+
+  return list;
 }
 
 window.addEventListener('DOMContentLoaded', function (event) {
   for (var i = 0; i < data.entries.length; i++) {
-    (renderList(data.entries[i]));
+    $ul.appendChild(renderList(data.entries[i]));
   }
 
 });
