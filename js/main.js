@@ -24,6 +24,7 @@ $form.addEventListener('submit', function (event) {
   data.entries.unshift(object);
 
   $ul.prepend((renderList(object)));
+
   viewSwap('entries');
   $form.reset();
   $image.src = 'images/placeholder-image-square.jpg';
@@ -53,6 +54,11 @@ function renderList(entry) {
   newElement.appendChild(heading);
   newElement.appendChild(par);
 
+  var icon = document.createElement('i');
+  icon.setAttribute('class', 'fa-solid fa-pen');
+  icon.setAttribute('data-entry-id', entry.nextid);
+  list.appendChild(icon);
+
   return list;
 }
 
@@ -60,7 +66,6 @@ window.addEventListener('DOMContentLoaded', function (event) {
   for (var i = 0; i < data.entries.length; i++) {
     $ul.appendChild(renderList(data.entries[i]));
   }
-
 });
 var $button = document.querySelector('.new-button');
 var form1 = document.querySelector('#form-1');
@@ -92,3 +97,31 @@ document.addEventListener('DOMContentLoaded', function () {
   viewSwap(data.view);
 }
 );
+
+$ul.addEventListener('click', edit);
+function edit(event) {
+  if (event.target.tagName === 'I') {
+    viewSwap('entry-form');
+  }
+  var list = document.querySelector('li');
+  // console.log(event.target.closest('data-entry-id'));
+
+  data.editing = data.entries[0];
+  $form.elements.title.value = data.entries[0].title;
+  $form.elements.url.value = data.entries[0].url;
+  $form.elements.notes.value = data.entries[0].notes;
+  handleInput();
+  newbutton.addEventListener('click', function (event) {
+    list.replaceWith(data.entries);
+  });
+  console.log('editing', data.editing);
+
+  console.log(event.target);
+
+}
+
+var newbutton = document.querySelector('.button-save');
+newbutton.addEventListener('click', function (event) {
+  console.log(newbutton);
+  console.log(newbutton.target);
+});

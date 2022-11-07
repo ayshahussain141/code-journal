@@ -108,3 +108,11 @@ a {
 li {
   list-style-type: none;
 }
+
+.fa-solid,
+.fa-pen {
+  font-size: 24px;
+  color: #562b81;
+  cursor: pointer;
+  height: fit-content;
+}
