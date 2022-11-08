@@ -35,4 +35,8 @@
   li {
     display: inline-flex;
   }
+
+  i {
+    display: inline-flex;
+  }
 }

@@ -108,3 +108,20 @@ a {
 li {
   list-style-type: none;
 }
+
+.fa-solid,
+.fa-pen {
+  font-size: 24px;
+  color: #562b81;
+  cursor: pointer;
+  height: fit-content;
+  transition: transform 3s ease;
+}
+
+.fa-solid:hover {
+  color: rgb(62, 35, 90);
+}
+
+.fa-pen:hover {
+  color: #432557;
+}
