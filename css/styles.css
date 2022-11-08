@@ -115,4 +115,13 @@ li {
   color: #562b81;
   cursor: pointer;
   height: fit-content;
+  transition: transform 3s ease;
+}
+
+.fa-solid:hover {
+  color: rgb(62, 35, 90);
+}
+
+.fa-pen:hover {
+  color: #432557;
 }

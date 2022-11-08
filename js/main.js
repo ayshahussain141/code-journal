@@ -14,17 +14,32 @@ $url.addEventListener('input', handleInput);
 
 $form.addEventListener('submit', function (event) {
   event.preventDefault();
-  var object = {};
+  if (data.editing === null) {
+    var object = {};
 
-  object.title = $form.elements.title.value;
-  object.url = $form.elements.url.value;
-  object.notes = $form.elements.notes.value;
-  object.nextid = data.nextEntryId;
-  data.nextEntryId++;
-  data.entries.unshift(object);
+    object.title = $form.elements.title.value;
+    object.url = $form.elements.url.value;
+    object.notes = $form.elements.notes.value;
+    object.nextid = data.nextEntryId;
+    data.nextEntryId++;
+    data.entries.unshift(object);
 
-  $ul.prepend((renderList(object)));
+    $ul.prepend((renderList(object)));
 
+  } else {
+
+    var list = document.querySelectorAll('li');
+
+    for (var a = 0; a < data.entries.length; a++) {
+      if (Number(data.editing.nextid) === Number(data.entries[a].nextid)) {
+        data.entries[a].title = $form.elements.title.value;
+        data.entries[a].url = $form.elements.url.value;
+        data.entries[a].notes = $form.elements.notes.value;
+        list[a].replaceWith(renderList(data.entries[a]));
+      }
+    }
+  }
+  data.editing = null;
   viewSwap('entries');
   $form.reset();
   $image.src = 'images/placeholder-image-square.jpg';
@@ -56,7 +71,7 @@ function renderList(entry) {
 
   var icon = document.createElement('i');
   icon.setAttribute('class', 'fa-solid fa-pen');
-  icon.setAttribute('data-entry-id', entry.nextid);
+  icon.setAttribute('data-next-id', entry.nextid);
   list.appendChild(icon);
 
   return list;
@@ -98,30 +113,23 @@ document.addEventListener('DOMContentLoaded', function () {
 }
 );
 
+var heading = document.querySelector('.page-heading');
 $ul.addEventListener('click', edit);
+
 function edit(event) {
+
   if (event.target.tagName === 'I') {
     viewSwap('entry-form');
+    heading.textContent = 'Edit Entry';
+
   }
-  var list = document.querySelector('li');
-  // console.log(event.target.closest('data-entry-id'));
-
-  data.editing = data.entries[0];
-  $form.elements.title.value = data.entries[0].title;
-  $form.elements.url.value = data.entries[0].url;
-  $form.elements.notes.value = data.entries[0].notes;
-  handleInput();
-  newbutton.addEventListener('click', function (event) {
-    list.replaceWith(data.entries);
-  });
-  console.log('editing', data.editing);
-
-  console.log(event.target);
-
+  for (var i = 0; i < data.entries.length; i++) {
+    if (Number(data.entries[i].nextid) === Number(event.target.dataset.nextId)) {
+      data.editing = { ...data.entries[i] };
+      $form.elements.title.value = data.editing.title;
+      $form.elements.url.value = data.editing.url;
+      $form.elements.notes.value = data.editing.notes;
+      handleInput();
+    }
+  }
 }
-
-var newbutton = document.querySelector('.button-save');
-newbutton.addEventListener('click', function (event) {
-  console.log(newbutton);
-  console.log(newbutton.target);
-});
