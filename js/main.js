@@ -50,6 +50,7 @@ function renderList(entry) {
 
   var list = document.createElement('li');
   list.setAttribute('data-next-id', entry.nextid);
+  list.setAttribute('class', 'list-method');
 
   var par = document.createElement('p');
   par.textContent = entry.notes;
@@ -118,11 +119,6 @@ $ul.addEventListener('click', edit);
 
 function edit(event) {
 
-  if (event.target.tagName === 'I') {
-    viewSwap('entry-form');
-    heading.textContent = 'Edit Entry';
-
-  }
   for (var i = 0; i < data.entries.length; i++) {
     if (Number(data.entries[i].nextid) === Number(event.target.dataset.nextId)) {
       data.editing = { ...data.entries[i] };
@@ -132,4 +128,50 @@ function edit(event) {
       handleInput();
     }
   }
+  if (event.target.tagName === 'I') {
+    viewSwap('entry-form');
+    heading.textContent = 'Edit Entry';
+    popup.className = 'delete-button visible';
+
+  }
+
 }
+
+var container = document.querySelector('#popup-container');
+var cancel = document.querySelector('.cancel');
+var confirm = document.querySelector('.confirm');
+var popup = document.querySelector('.delete-button');
+
+popup.addEventListener('click', function () {
+  container.className = 'container-2 visible';
+  overlay.className = 'overlay visible';
+});
+
+cancel.addEventListener('click', function () {
+  container.className = 'container-2 hidden';
+  overlay.className = 'overlay hidden';
+
+});
+
+confirm.addEventListener('click', function () {
+  container.className = 'container-2 hidden';
+  overlay.className = 'overlay hidden';
+
+  viewSwap('entries');
+  var $list = document.querySelectorAll('li');
+  for (var a = 0; a < $list.length; a++) {
+    var $entryId = $list[a].getAttribute('data-next-id');
+    if (parseInt($entryId) === data.editing.nextid) {
+      $list[a].remove();
+    }
+
+  }
+  for (var i = 0; i < data.entries.length; i++) {
+    if (data.editing.nextid === data.entries[i].nextid) {
+      data.entries.splice(i, 1);
+
+    }
+  }
+});
+
+var overlay = document.querySelector('.overlay');
