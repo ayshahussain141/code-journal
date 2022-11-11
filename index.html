@@ -75,8 +75,13 @@
               <textarea name="notes" id="notes" rows="7" cols="6" required></textarea>
             </div>
           </div>
-          <div class="row justify-content-right">
-            <button class="button-save">Save</button>
+          <div class="row justify-content-right" id="del-button">
+            <div class="column margin-right">
+              <button type="button" class="delete-button hidden">Delete Entry</button>
+            </div>
+            <div class="column">
+              <button class="button-save">Save</button>
+            </div>
           </div>
 
         </form>
@@ -100,6 +105,24 @@
       </div>
 
     </div>
+
+    <div class="overlay hidden">
+      <div class="container-2 hidden modal" id="popup-container">
+        <div class="row">
+          <div class="column-full text-align-center">
+            <h3>Are you sure you want to delete with this entry?</h3>
+          </div>
+        </div>
+        <div class="row justify-content-space ">
+
+          <button class="cancel">CANCEL</button>
+          <button class="confirm">CONFIRM</button>
+        </div>
+      </div>
+    </div>
+
+
+
 
 
 
